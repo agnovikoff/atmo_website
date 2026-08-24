@@ -105,6 +105,33 @@
   .proof-signal { color: var(--signal); border-color: rgba(94,200,192,0.35); background: rgba(94,200,192,0.07); }
   .proof-calibration { color: var(--calibration); border-color: rgba(217,154,78,0.35); background: rgba(217,154,78,0.07); }
 
+  .dash-stack {
+    position: relative;
+    padding: 2rem 0 1rem;
+  }
+  .dash-card {
+    display: block;
+    width: 100%;
+    max-width: 30rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+    margin: 0 auto 1.5rem;
+  }
+  .dash-card-1 { position: static; }
+  .dash-card-2 { position: static; }
+  .dash-card-3 { position: static; }
+  .dash-card-4 { position: static; margin-bottom: 0; }
+
+  @media (min-width: 900px) {
+    .dash-stack { min-height: 19rem; padding-top: 5.5rem; padding-bottom: 3rem; }
+    .dash-card { position: absolute; margin: 0; max-width: 26rem; }
+    .dash-card-1 { top: 0; left: 2%; width: 42%; transform: rotate(-3deg); z-index: 1; }
+    .dash-card-2 { top: 5%; left: 30%; width: 44%; transform: rotate(2deg); z-index: 2; }
+    .dash-card-3 { top: 0%; left: 54%; width: 44%; transform: rotate(-2deg); z-index: 3; }
+    .dash-card-4 { top: 6%; left: 8%; width: 34%; transform: rotate(3deg); z-index: 4; }
+  }
+
   .screenshot-slot {
     border: 1px dashed rgba(255,255,255,0.15);
     border-radius: 14px;
@@ -288,18 +315,14 @@
     </div>
   </div>
 
-  <!-- ==================================================================== -->
-  <!-- МЕСТО ДЛЯ СКРИНШОТА ДАШБОРДА                                        -->
-  <!-- Замените блок .screenshot-slot ниже на:                             -->
-  <!-- <img src="dashboard.png" alt="Фрагмент дашборда: связность команд"  -->
-  <!--      class="w-full" style="border-radius:14px; border:1px solid    -->
-  <!--      rgba(255,255,255,0.08); display:block;">                       -->
-  <!-- Положите файл dashboard.png рядом с этим HTML-файлом.               -->
-  <!-- ==================================================================== -->
   <div>
     <p class="eyebrow mb-4">Фрагменты рабочих дашбордов</p>
-    <img src="interdepartment.jpg" alt="Фрагмент рабочего дашборда"
-         class="w-full" style="border-radius:14px; border:1px solid rgba(255,255,255,0.08); display:block;">
+    <div class="dash-stack">
+      <img src="dash-timeline.png" alt="Дашборд: динамика изоляции команды по месяцам" class="dash-card dash-card-1">
+      <img src="dash-bubble.png" alt="Дашборд: критичность и частота связей по сотрудникам" class="dash-card dash-card-2">
+      <img src="dash-heatmap.png" alt="Дашборд: сила связи между отделами" class="dash-card dash-card-3">
+      <img src="dash-network.png" alt="Дашборд: карта связности отделов" class="dash-card dash-card-4">
+    </div>
   </div>
 </section>
 
@@ -316,7 +339,7 @@
         <h3 class="text-lg mb-3">Продуктовые требования из шума</h3>
         <p style="color: var(--mist)">
           Из тикетов поддержки и записей sales-звонков — то, что клиенты
-          просили на самом деле, не то, что менеджер запомнил и пересказал на летучке.
+          просили на самом деле, а не то, что менеджер запомнил и пересказал по памяти.
         </p>
         <span class="proof proof-signal">3 фичи из анализа логов саппорта · adoption 40%+</span>
       </div>
@@ -352,6 +375,7 @@
             Зависшие межфункциональные передачи, кейсы без явного владельца —
             до того как всплывёт «но я же говорил».
           </p>
+          <span class="proof" style="color: var(--alert); border-color: rgba(226,115,90,0.35); background: rgba(226,115,90,0.07);">80%+ оценок 9 или 10 — за выявленные скрытые обязательства</span>
         </div>
         <div class="card">
           <h3 class="text-lg mb-3">Потери со встреч</h3>
@@ -359,6 +383,7 @@
             Из записей звонков и переписки — обязательства, которые никто
             не зафиксировал и не подтвердил, до того как они станут проблемой.
           </p>
+          <span class="proof" style="color: var(--alert); border-color: rgba(226,115,90,0.35); background: rgba(226,115,90,0.07);">37% обязательств со звонков не фиксируются нигде, кроме памяти участников</span>
         </div>
       </div>
     </div>
@@ -369,7 +394,7 @@
 <!-- SECURITY -->
 <section id="bezopasnost" class="wrap section">
   <p class="eyebrow mb-4">Данные</p>
-  <h2 class="display mb-12 max-w-lg">Что происходит с вашей перепиской</h2>
+  <h2 class="display mb-12 max-w-lg">Ваша переписка защищена</h2>
 
   <div class="grid grid-3">
     <div class="card">
@@ -415,7 +440,7 @@
       <p class="eyebrow mb-3">Сценария</p>
       <p style="color: var(--mist)">
         Фокусируемся на том, что болит сильнее всего сейчас,
-        а не пытаемся охватить всё сразу.
+        не пытаемся охватить всё сразу.
       </p>
     </div>
     <div class="card">
